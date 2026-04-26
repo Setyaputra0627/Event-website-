@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Leaderboard</title>
+<style>
+body{background:#0f0f14;color:white;font-family:Arial;text-align:center;padding:40px}
+table{margin:auto;border-collapse:collapse;width:80%}
+td,th{border:1px solid #444;padding:12px}
+th{background:#1f1f2e}
+</style>
+</head>
+<body>
+
+<h1>🏆 LEADERBOARD</h1>
+
+<table>
+<tr><th>Rank</th><th>Nama</th><th>Total Score</th></tr>
+<tbody id="board"></tbody>
+</table>
+
+<script>
+let data=JSON.parse(localStorage.getItem("leaderboard")||"{}");
+let arr=[];
+for(let u in data){
+let t=data[u].event1+data[u].event2+data[u].event3;
+arr.push({name:u,total:t});
+}
+arr.sort((a,b)=>b.total-a.total);
+let html="";
+arr.forEach((p,i)=>{
+html+=`<tr><td>#${i+1}</td><td>${p.name}</td><td>${p.total}</td></tr>`;
+});
+document.getElementById("board").innerHTML=html;
+</script>
+
+</body>
+</html>
