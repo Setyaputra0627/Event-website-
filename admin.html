@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Leaderboard Admin</title>
+<style>
+body{background:#0b0c1a;color:white;font-family:Arial;text-align:center}
+table{margin:auto;border-collapse:collapse;width:60%}
+td,th{border:1px solid white;padding:10px}
+</style>
+</head>
+<body>
+
+<h1>🏆 LEADERBOARD PESERTA</h1>
+<table>
+<tr><th>Ranking</th><th>Nama</th><th>Score</th></tr>
+<tbody id="rank"></tbody>
+</table>
+
+<script>
+let data=JSON.parse(localStorage.getItem("leaderboard")||"[]");
+
+data.sort((a,b)=>b.score-a.score);
+
+let html="";
+for(let i=0;i<data.length;i++){
+ html+=`<tr>
+ <td>${i+1}</td>
+ <td>${data[i].nama}</td>
+ <td>${data[i].score}</td>
+ </tr>`;
+}
+
+document.getElementById("rank").innerHTML=html;
+</script>
+
+</body>
+</html>
