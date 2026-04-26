@@ -68,19 +68,32 @@ x − y = 4
 <button onclick="finish()">SELESAI</button>
 
 <script>
-let correct={1:'A',2:'A',3:'A',4:'B',5:'C',6:'C',7:'A',8:'A',9:'B',10:'A'};
+let answers=["A","A","A","B","C","C","A","A","B","A"];
+let userAnswers=[];
 let score=0;
 
-function ans(q,a){
-if(a==correct[q]) score+=10;
+function pilih(no,pilihan,btn){
+ userAnswers[no]=pilihan;
+
+ let buttons=btn.parentElement.querySelectorAll("button");
+ buttons.forEach(b=>b.style.background="#444");
+ btn.style.background="green";
 }
 
-function finish(){
-localStorage.setItem("event1",score);
-alert("Skor kamu: "+score);
-window.location="menu.html";
+function selesaiEvent(){
+ for(let i=0;i<answers.length;i++){
+   if(userAnswers[i]==answers[i]) score+=10;
+ }
+
+ let user=localStorage.getItem("user");
+ let data=JSON.parse(localStorage.getItem("leaderboard")||"[]");
+
+ data.push({nama:user,score:score});
+ localStorage.setItem("leaderboard",JSON.stringify(data));
+
+ alert("SELAMAT ANDA TELAH MENGIKUTI EVENT PERTAMA\nSILAHKAN NUNGGU NILAI ADA DI GRUP\nGABUT BUT TOGETHER YA!");
+
+ window.location="events.html";
 }
 </script>
-
-</body>
 </html>
