@@ -60,8 +60,9 @@ const questions=[
 ];
 
 // ================= GENERATE QUIZ =================
+
 let score=0;
-let answered=0;
+let answeredQuestions={};
 
 if(document.getElementById("quiz")){
 startTimer();
@@ -69,12 +70,13 @@ startTimer();
 let html="";
 questions.forEach((q,i)=>{
 html+=`
+<div class="soal" id="soal${i}">
 <p style="white-space:pre-line"><b>${i+1}. ${q[0]}</b></p>
 
-<button class="opt" onclick="answer(this,'A','${q[4]}')">A. ${q[1]}</button>
-<button class="opt" onclick="answer(this,'B','${q[4]}')">B. ${q[2]}</button>
-<button class="opt" onclick="answer(this,'C','${q[4]}')">C. ${q[3]}</button>
-<br><br>
+<button onclick="answer(${i},this,'A','${q[4]}')">A. ${q[1]}</button>
+<button onclick="answer(${i},this,'B','${q[4]}')">B. ${q[2]}</button>
+<button onclick="answer(${i},this,'C','${q[4]}')">C. ${q[3]}</button>
+</div><br>
 `;
 });
 
