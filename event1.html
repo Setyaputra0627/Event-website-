@@ -1,65 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Event 1</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>EVENT 1 — HARD ADDITION</h1>
+<h2>TIMER : <span id="timer">0</span> detik</h2>
 
 <div id="quiz"></div>
-<button onclick="selesai()">SELESAI EVENT</button>
 
-<script>
-let soal=[
-["3x+7=25","A 6","B 14","C -6"],
-["3/4 + 5/6","A 1 7/12","B 4 6/9","C 9 8/9"],
-["x+y=18 x-y=4","A x11 y7","B x11 y-7","C x8 y7"],
-["Umur Ani","A 10","B 9","C 13"],
-["Luas segitiga","A 78","B 34","C 48"],
-["-7+15-9","A -9","B -7","C -1"],
-["2^4+2^5","A 128","B 57","C 67"],
-["Keliling lingkaran","A 44","B 89","C 59"],
-["Bilangan terbesar","A 11","B 12","C 13"],
-["Rata-rata","A 8","B 67","C 35"]
-];
+<button onclick="finishQuiz()">SELESAI</button>
 
-let jawaban=["A","A","A","B","C","C","A","A","B","A"];
-let pilihUser=[];
-
-let html="";
-for(let i=0;i<soal.length;i++){
- html+=`<div class="card">
- <h3>${i+1}. ${soal[i][0]}</h3>
- <button class="option" onclick="pilih(${i},'A',this)">${soal[i][1]}</button>
- <button class="option" onclick="pilih(${i},'B',this)">${soal[i][2]}</button>
- <button class="option" onclick="pilih(${i},'C',this)">${soal[i][3]}</button>
- </div>`;
-}
-document.getElementById("quiz").innerHTML=html;
-
-function pilih(no,huruf,btn){
- pilihUser[no]=huruf;
- let semua=btn.parentElement.querySelectorAll("button");
- semua.forEach(b=>b.style.background="#333");
- btn.style.background="green";
-}
-
-function selesai(){
- let skor=0;
- for(let i=0;i<jawaban.length;i++){
-   if(pilihUser[i]==jawaban[i]) skor+=10;
- }
-
- let user=localStorage.getItem("user");
- let data=JSON.parse(localStorage.getItem("leaderboard")||"[]");
- data.push({nama:user,score:skor});
- localStorage.setItem("leaderboard",JSON.stringify(data));
-
- alert("SELAMAT ANDA TELAH MENGIKUTI EVENT PERTAMA\nSILAHKAN NUNGGU NILAI DI GRUP GABUT BUT TOGETHER!");
- window.location="events.html";
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
