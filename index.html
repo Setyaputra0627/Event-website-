@@ -4,33 +4,16 @@
 <title>Login Event</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="center">
 
-<div class="box">
-<h1>LOGIN PESERTA</h1>
-<input id="username" placeholder="Masukkan Username"><br>
+<div class="card">
+<h1>LOGIN EVENT</h1>
+
+<input id="username" placeholder="Masukkan Username"><br><br>
+
 <button onclick="login()">Masuk</button>
 </div>
 
-<script>
-function login(){
- let user=document.getElementById("username").value;
- if(user==""){alert("Isi username!");return;}
- localStorage.setItem("user",user);
-
- let adminConfirm=confirm("Apakah kamu admin?");
- if(adminConfirm){
-   let pass=prompt("Masukkan Password Admin:");
-   if(pass=="Admin#123"){
-     window.location="admin.html";
-   }else{
-     alert("Password salah!");
-   }
- }else{
-   window.location="welcome.html";
- }
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
