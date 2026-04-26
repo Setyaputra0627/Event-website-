@@ -144,3 +144,11 @@ html+=`${i+1}. ${d.user} | Score: ${d.score} | Time: ${d.time}s <br><br>`;
 
 document.getElementById("leaderboard").innerHTML=html;
   }
+
+function resetLeaderboard(){
+if(confirm("Yakin hapus semua score?")){
+localStorage.removeItem("leaderboard");
+alert("Leaderboard berhasil dihapus!");
+location.reload();
+}
+}
