@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Menu Event</title>
-<style>
-body{background:#0f0f14;color:white;font-family:Arial;text-align:center;padding:60px}
-button{display:block;margin:20px auto;padding:15px 40px;border:none;border-radius:10px;background:#6c63ff;color:white;font-size:18px}
-</style>
+<title>Events</title>
+<link rel="stylesheet" href="style.css">
 </head>
+<body class="center">
 
-<body>
+<div class="card">
+<h1>DAFTAR EVENT</h1>
 
-<h1>DAFTAR EVENT TERSEDIA</h1>
+<button onclick="location.href='event1.html'">Event 1 - Hard Addition</button>
 
-<a href="event1.html"><button>Event 1 - Hard Addition</button></a>
+<br><br>
 
+<button id="leaderBtn" onclick="location.href='admin.html'" style="display:none">
+LEADERBOARD (ADMIN)
+</button>
 
-<a href="leaderboard.html">
-<button style="background:#ffcc00;color:black">ADMIN LEADERBOARD</button>
-</a>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
