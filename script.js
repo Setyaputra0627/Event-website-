@@ -43,7 +43,12 @@ if(document.hidden && document.getElementById("quiz")){
 finishQuiz();
 }
 });
-window.onbeforeunload=()=>true;
+// aktifkan warning hanya saat halaman quiz
+if(document.getElementById("quiz")){
+window.onbeforeunload = function () {
+return "Keluar dari quiz?";
+};
+}
 
 // ================= DATA SOAL FULL =================
 const questions=[
