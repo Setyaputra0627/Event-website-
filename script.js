@@ -84,21 +84,26 @@ document.getElementById("quiz").innerHTML=html;
 }
 
 // ================= PILIH JAWABAN =================
-function answer(btn,choice,correct){
+function answer(index,btn,choice,correct){
 
-// biar 1 soal ga bisa jawab 2x
-if(btn.parentElement.classList.contains("done")) return;
-btn.parentElement.classList.add("done");
+// kalau soal sudah dijawab → ga bisa klik lagi
+if(answeredQuestions[index]) return;
+answeredQuestions[index]=true;
 
-let buttons=btn.parentElement.querySelectorAll("button");
+let box=document.getElementById("soal"+index);
+let buttons=box.querySelectorAll("button");
 
+// warnai semua tombol
 buttons.forEach(b=>{
-if(b.innerText[0]===correct) b.style.background="#00c853";
-else b.style.background="#ff5252";
+if(b.innerText[0]===correct){
+b.style.background="#00c853"; // hijau benar
+}else{
+b.style.background="#ff5252"; // merah salah
+}
 });
 
+// tambah score kalau benar
 if(choice===correct) score+=10;
-answered++;
 }
 
 // ================= FINISH QUIZ =================
