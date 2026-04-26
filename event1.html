@@ -1,99 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Event 1</title>
-<style>
-body{background:#0f0f14;color:white;font-family:Arial;padding:40px}
-.question{margin-bottom:25px}
-button{margin:5px;padding:8px 15px;border:none;border-radius:6px}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1>Event 1 - Hard Addition</h1>
+<h1>EVENT 1 — HARD ADDITION</h1>
 
-<div class="question">1. 3x+7=25. maka niali x?
-<button onclick="ans(1,'A')">A 6</button>
-<button onclick="ans(1,'B')">B 14</button>
-<button onclick="ans(1,'C')">C -6</button></div>
-
-<div class="question">2. (3/4)+(5/6)?
-<button onclick="ans(2,'A')">A 1 7/13</button>
-<button onclick="ans(2,'B')">B 4 6/9</button>
-<button onclick="ans(2,'C')">C 9 8/9</button></div>
-
-<div class="question">3. Jumlah dua bilangan 18 dan selisihnya 4.
-x + y = 18
-x − y = 4
-<button onclick="ans(3,'A')">A x11 y7</button>
-<button onclick="ans(3,'B')">B x11 y-7</button>
-<button onclick="ans(3,'C')">C x8 y7</button></div>
-
-<div class="question">4. Umur Ani : Budi = 3 : 5. Jika umur Budi 15 tahun, umur Ani adalah …?
-<button onclick="ans(4,'A')">A 10</button>
-<button onclick="ans(4,'B')">B 9</button>
-<button onclick="ans(4,'C')">C 13</button></div>
-
-<div class="question">5. Alas segitiga = 12 cm dan tinggi = 8 cm. Luasnya adalah …?
-<button onclick="ans(5,'A')">A 78</button>
-<button onclick="ans(5,'B')">B 34</button>
-<button onclick="ans(5,'C')">C 48</button></div>
-
-<div class="question">6. (-7)+15-(9)?
-<button onclick="ans(6,'A')">A -9</button>
-<button onclick="ans(6,'B')">B -7</button>
-<button onclick="ans(6,'C')">C -1</button></div>
-
-<div class="question">7. 2⁴+2⁵?
-<button onclick="ans(7,'A')">A 128</button>
-<button onclick="ans(7,'B')">B 57</button>
-<button onclick="ans(7,'C')">C 67</button></div>
-
-<div class="question">8. Jari-jari lingkaran = 7 cm. Gunakan π = 22/7. Keliling lingkaran adalah …?
-<button onclick="ans(8,'A')">A 44</button>
-<button onclick="ans(8,'B')">B 89</button>
-<button onclick="ans(8,'C')">C 59</button></div>
-
-<div class="question">9. Jumlah dua bilangan = 20. Selisih kedua bilangan = 4. Bilangan terbesar adalah …?
-<button onclick="ans(9,'A')">A 11</button>
-<button onclick="ans(9,'B')">B 12</button>
-<button onclick="ans(9,'C')">C 13</button></div>
-
-<div class="question">10. Nilai rata-rata dari 6, 8, 7, 9, 10 adalah …?
-<button onclick="ans(10,'A')">A 8</button>
-<button onclick="ans(10,'B')">B 67</button>
-<button onclick="ans(10,'C')">C 35</button></div>
-
-<button onclick="finish()">SELESAI</button>
+<div id="quiz"></div>
+<button onclick="selesai()">SELESAI EVENT</button>
 
 <script>
-let answers=["A","A","A","B","C","C","A","A","B","A"];
-let userAnswers=[];
-let score=0;
+let soal=[
+["3x+7=25","A 6","B 14","C -6"],
+["3/4 + 5/6","A 1 7/12","B 4 6/9","C 9 8/9"],
+["x+y=18 x-y=4","A x11 y7","B x11 y-7","C x8 y7"],
+["Umur Ani","A 10","B 9","C 13"],
+["Luas segitiga","A 78","B 34","C 48"],
+["-7+15-9","A -9","B -7","C -1"],
+["2^4+2^5","A 128","B 57","C 67"],
+["Keliling lingkaran","A 44","B 89","C 59"],
+["Bilangan terbesar","A 11","B 12","C 13"],
+["Rata-rata","A 8","B 67","C 35"]
+];
 
-function pilih(no,pilihan,btn){
- userAnswers[no]=pilihan;
+let jawaban=["A","A","A","B","C","C","A","A","B","A"];
+let pilihUser=[];
 
- let buttons=btn.parentElement.querySelectorAll("button");
- buttons.forEach(b=>b.style.background="#444");
+let html="";
+for(let i=0;i<soal.length;i++){
+ html+=`<div class="card">
+ <h3>${i+1}. ${soal[i][0]}</h3>
+ <button class="option" onclick="pilih(${i},'A',this)">${soal[i][1]}</button>
+ <button class="option" onclick="pilih(${i},'B',this)">${soal[i][2]}</button>
+ <button class="option" onclick="pilih(${i},'C',this)">${soal[i][3]}</button>
+ </div>`;
+}
+document.getElementById("quiz").innerHTML=html;
+
+function pilih(no,huruf,btn){
+ pilihUser[no]=huruf;
+ let semua=btn.parentElement.querySelectorAll("button");
+ semua.forEach(b=>b.style.background="#333");
  btn.style.background="green";
 }
 
-function selesaiEvent(){
- for(let i=0;i<answers.length;i++){
-   if(userAnswers[i]==answers[i]) score+=10;
+function selesai(){
+ let skor=0;
+ for(let i=0;i<jawaban.length;i++){
+   if(pilihUser[i]==jawaban[i]) skor+=10;
  }
 
  let user=localStorage.getItem("user");
  let data=JSON.parse(localStorage.getItem("leaderboard")||"[]");
-
- data.push({nama:user,score:score});
+ data.push({nama:user,score:skor});
  localStorage.setItem("leaderboard",JSON.stringify(data));
 
- alert("SELAMAT ANDA TELAH MENGIKUTI EVENT PERTAMA\nSILAHKAN NUNGGU NILAI ADA DI GRUP\nGABUT BUT TOGETHER YA!");
-
+ alert("SELAMAT ANDA TELAH MENGIKUTI EVENT PERTAMA\nSILAHKAN NUNGGU NILAI DI GRUP GABUT BUT TOGETHER!");
  window.location="events.html";
 }
 </script>
+
+</body>
 </html>
