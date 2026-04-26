@@ -1,26 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Leaderboard</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>🏆 LEADERBOARD</h1>
-<table border="1" style="margin:auto;width:60%">
-<tr><th>Rank</th><th>Nama</th><th>Score</th></tr>
-<tbody id="rank"></tbody>
-</table>
+<h1>LEADERBOARD EVENT</h1>
+<div id="leaderboard"></div>
 
-<script>
-let data=JSON.parse(localStorage.getItem("leaderboard")||"[]");
-data.sort((a,b)=>b.score-a.score);
-
-let html="";
-for(let i=0;i<data.length;i++){
- html+=`<tr><td>${i+1}</td><td>${data[i].nama}</td><td>${data[i].score}</td></tr>`;
-}
-document.getElementById("rank").innerHTML=html;
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
