@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Event 1</title>
+<style>
+body{background:#0f0f14;color:white;font-family:Arial;padding:40px}
+.question{margin-bottom:25px}
+button{margin:5px;padding:8px 15px;border:none;border-radius:6px}
+</style>
+</head>
+
+<body>
+
+<h1>Event 1 - Hard Addition</h1>
+
+<div class="question">1. 3x+7=25. maka niali x?
+<button onclick="ans(1,'A')">A 6</button>
+<button onclick="ans(1,'B')">B 14</button>
+<button onclick="ans(1,'C')">C -6</button></div>
+
+<div class="question">2. (3/4)+(5/6)?
+<button onclick="ans(2,'A')">A 1 7/13</button>
+<button onclick="ans(2,'B')">B 4 6/9</button>
+<button onclick="ans(2,'C')">C 9 8/9</button></div>
+
+<div class="question">3. Jumlah dua bilangan 18 dan selisihnya 4.
+x + y = 18
+x − y = 4
+<button onclick="ans(3,'A')">A x11 y7</button>
+<button onclick="ans(3,'B')">B x11 y-7</button>
+<button onclick="ans(3,'C')">C x8 y7</button></div>
+
+<div class="question">4. Umur Ani : Budi = 3 : 5. Jika umur Budi 15 tahun, umur Ani adalah …?
+<button onclick="ans(4,'A')">A 10</button>
+<button onclick="ans(4,'B')">B 9</button>
+<button onclick="ans(4,'C')">C 13</button></div>
+
+<div class="question">5. Alas segitiga = 12 cm dan tinggi = 8 cm. Luasnya adalah …?
+<button onclick="ans(5,'A')">A 78</button>
+<button onclick="ans(5,'B')">B 34</button>
+<button onclick="ans(5,'C')">C 48</button></div>
+
+<div class="question">6. (-7)+15-(9)?
+<button onclick="ans(6,'A')">A -9</button>
+<button onclick="ans(6,'B')">B -7</button>
+<button onclick="ans(6,'C')">C -1</button></div>
+
+<div class="question">7. 2⁴+2⁵?
+<button onclick="ans(7,'A')">A 128</button>
+<button onclick="ans(7,'B')">B 57</button>
+<button onclick="ans(7,'C')">C 67</button></div>
+
+<div class="question">8. Jari-jari lingkaran = 7 cm. Gunakan π = 22/7. Keliling lingkaran adalah …?
+<button onclick="ans(8,'A')">A 44</button>
+<button onclick="ans(8,'B')">B 89</button>
+<button onclick="ans(8,'C')">C 59</button></div>
+
+<div class="question">9. Jumlah dua bilangan = 20. Selisih kedua bilangan = 4. Bilangan terbesar adalah …?
+<button onclick="ans(9,'A')">A 11</button>
+<button onclick="ans(9,'B')">B 12</button>
+<button onclick="ans(9,'C')">C 13</button></div>
+
+<div class="question">10. Nilai rata-rata dari 6, 8, 7, 9, 10 adalah …?
+<button onclick="ans(10,'A')">A 8</button>
+<button onclick="ans(10,'B')">B 67</button>
+<button onclick="ans(10,'C')">C 35</button></div>
+
+<button onclick="finish()">SELESAI</button>
+
+<script>
+let correct={1:'A',2:'A',3:'A',4:'B',5:'C',6:'C',7:'A',8:'A',9:'B',10:'A'};
+let score=0;
+
+function ans(q,a){
+if(a==correct[q]) score+=10;
+}
+
+function finish(){
+localStorage.setItem("event1",score);
+alert("Skor kamu: "+score);
+window.location="menu.html";
+}
+</script>
+
+</body>
+</html>
