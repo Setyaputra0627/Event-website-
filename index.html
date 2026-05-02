@@ -1,20 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login COA</title>
-  <script src="script.js"></script>
+  <title>Login Event</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+    body{
+      font-family: Arial;
+      background:#0f172a;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      color:white;
+    }
+
+    .box{
+      background:#1e293b;
+      padding:30px;
+      border-radius:15px;
+      width:300px;
+      text-align:center;
+      box-shadow:0 0 15px rgba(0,0,0,0.5);
+    }
+
+    input{
+      width:90%;
+      padding:10px;
+      margin:10px 0;
+      border-radius:8px;
+      border:none;
+      outline:none;
+    }
+
+    button{
+      width:100%;
+      padding:10px;
+      border:none;
+      border-radius:8px;
+      background:#22c55e;
+      color:white;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#16a34a;
+    }
+  </style>
 </head>
 
 <body>
 
-<h2>LOGIN PESERTA COA</h2>
+  <div class="box">
+    <h2>LOGIN EVENT</h2>
 
-<input type="text" id="username" placeholder="Username"><br><br>
-<input type="password" id="password" placeholder="Password"><br><br>
+    <input type="text" id="username" placeholder="Masukkan Nama">
+    <input type="password" id="password" placeholder="Password">
 
-<button onclick="login()">LOGIN</button>
+    <button onclick="login()">LOGIN</button>
+  </div>
 
-<p id="info"></p>
-
+  <script src="script.js"></script>
 </body>
 </html>
