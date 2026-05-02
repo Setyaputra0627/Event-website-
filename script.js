@@ -129,7 +129,7 @@ function selesaiQuiz(){
 
 // ================= KIRIM KE GOOGLE SHEET =================
 function kirimSkor(nama, skor){
-  fetch("PASTE_URL_WEB_APP_KAMU_DISINI", {
+  fetch("https://script.google.com/macros/s/AKfycbwbmugT5es6xfhIr-_Lk1AqlLB80fw_ubVf9D0h8hG7Bbfc630tlEmdXDGOOHtBHXcg8w/exec", {
     method: "POST",
     body: JSON.stringify({ nama:nama, skor:skor })
   })
