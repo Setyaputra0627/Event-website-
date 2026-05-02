@@ -3,7 +3,7 @@
 <head>
   <title>Login Event</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <style>
     body{
       font-family: Arial;
@@ -61,6 +61,25 @@
     <button onclick="login()">LOGIN</button>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function login() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if(username === "" || password === ""){
+        alert("Isi nama & password dulu!");
+        return;
+      }
+
+      // PASSWORD BARU
+      if(password === "HARD ADDITION"){
+        localStorage.setItem("namaPeserta", username);
+        window.location.href = "kata-sambutan.html";
+      } else {
+        alert("Password salah!");
+      }
+    }
+  </script>
+
 </body>
 </html>
