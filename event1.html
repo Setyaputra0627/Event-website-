@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Event 1 - Quiz</title>
+<title>Event 1 - C.O.A</title>
 <link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
 </head>
 
-<body onload="cekLogin(); mulaiQuiz()">
+<body onload="mulaiQuiz()">
 
-<div class="box" id="quiz">
-  <h2 id="q">Soal</h2>
-  <div id="pilihan"></div>
+<div class="box">
+<h2 id="nomor"></h2>
+<h3 id="pertanyaan"></h3>
+<div id="pilihan"></div>
 </div>
 
 <div class="box" id="hasil" style="display:none">
-  <h2>SELESAI 🎉</h2>
-  <h3 id="nilai"></h3>
-  <button onclick="kirimDanSelesai()">Kirim Skor ke Leaderboard</button>
+<h2>QUIZ SELESAI 🎉</h2>
+<h3 id="nilai"></h3>
+<button onclick="location.reload()">Ulangi Quiz</button>
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>
