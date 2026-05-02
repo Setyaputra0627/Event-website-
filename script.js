@@ -1,18 +1,26 @@
 // ================= LOGIN CEK =================
 function login() {
-  var user = document.getElementById("username").value;
-  var pass = document.getElementById("password").value;
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
 
-  if(user === "" || pass === ""){
-    document.getElementById("info").innerHTML = "Isi dulu username & password!";
+  // kalau kosong
+  if(username === "" || password === ""){
+    alert("Isi nama & password dulu!");
     return;
   }
 
-  // simpan login ke browser
-  localStorage.setItem("user", user);
+  // password event bebas (kamu bisa ganti)
+  var passwordEvent = "HARD ADDITION";
 
-  // pindah ke halaman sambutan
-  window.location.href = "kata-sambutan.html";
+  if(password === passwordEvent){
+    // simpan nama ke browser
+    localStorage.setItem("namaPeserta", username);
+
+    // pindah halaman
+    window.location.href = "kata-sambutan.html";
+  }else{
+    alert("Password salah!");
+  }
 }
 // ================= DATA SOAL =================
 let soal = [
