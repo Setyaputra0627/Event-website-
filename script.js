@@ -122,7 +122,7 @@ function selesaiQuiz(){
 
   let nama = prompt("Masukkan nama untuk leaderboard");
 
-  fetch("PASTE_URL_WEB_APP_DISINI", {
+  fetch("https://script.google.com/macros/s/AKfycbxDTCinFQZV03YwUgw63TcKqaOHDPbgeRibYN62xNIyKkXgYRXZJmrvmprmePeUhdKkZA/exec", {
     method: "POST",
     body: JSON.stringify({
       nama: nama,
