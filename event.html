@@ -1,8 +1,59 @@
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
-<body onload="cekLogin()">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pilih Event</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="box">
-<h2>Pilih Event</h2>
-<button onclick="mulaiEvent1()">Event 1 HARD ADDITION</button>
-</div>
+  <style>
+    body{
+      font-family: Arial;
+      background:#0f172a;
+      color:white;
+      text-align:center;
+      padding-top:50px;
+    }
+
+    .box{
+      background:#1e293b;
+      margin:auto;
+      padding:30px;
+      border-radius:15px;
+      width:300px;
+      box-shadow:0 0 15px rgba(0,0,0,0.5);
+    }
+
+    button{
+      width:100%;
+      padding:15px;
+      margin-top:15px;
+      border:none;
+      border-radius:10px;
+      background:#3b82f6;
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#2563eb;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h2>Pilih Event</h2>
+
+    <button onclick="event1()">Event 1</button>
+    
+  </div>
+
+  <script>
+    function event1(){
+      window.location.href = "event1.html";
+    }
+  </script>
+
+</body>
+</html>
