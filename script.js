@@ -1,10 +1,19 @@
 // ================= LOGIN CEK =================
-function cekLogin(){
-  if(localStorage.getItem("username") == null){
-    window.location = "index.html";
-  }
-}
+function login() {
+  var user = document.getElementById("username").value;
+  var pass = document.getElementById("password").value;
 
+  if(user === "" || pass === ""){
+    document.getElementById("info").innerHTML = "Isi dulu username & password!";
+    return;
+  }
+
+  // simpan login ke browser
+  localStorage.setItem("user", user);
+
+  // pindah ke halaman sambutan
+  window.location.href = "kata-sambutan.html";
+}
 // ================= DATA SOAL =================
 let soal = [
 
