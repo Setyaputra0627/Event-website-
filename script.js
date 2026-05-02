@@ -95,7 +95,19 @@ function tampilSoal(){
     pilihanHTML += `<button onclick="jawab(this,'${pil}')">${pil}</button><br><br>`;
   });
 
-  document.getElementById("pilihan").innerHTML = pilihanHTML;
+  document.getElementById("nilai").innerHTML = "Skor kamu : " + skor;
+
+// minta nama peserta
+let nama = prompt("Masukkan nama kamu untuk leaderboard");
+
+// kirim ke google sheet
+fetch("PASTE_URL_WEB_APP_DISINI", {
+  method: "POST",
+  body: JSON.stringify({
+    nama: nama,
+    skor: skor
+  })
+});
 }
 
 // ===============================
