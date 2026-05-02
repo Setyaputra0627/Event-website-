@@ -101,7 +101,7 @@ function tampilSoal(){
 let nama = prompt("Masukkan nama kamu untuk leaderboard");
 
 // kirim ke google sheet
-fetch("PASTE_URL_WEB_APP_DISINI", {
+fetch("https://script.google.com/macros/s/AKfycbwbmugT5es6xfhIr-_Lk1AqlLB80fw_ubVf9D0h8hG7Bbfc630tlEmdXDGOOHtBHXcg8w/exec", {
   method: "POST",
   body: JSON.stringify({
     nama: nama,
